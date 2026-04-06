@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXIF Stripper</title>
+  <!-- Scripts and styles are same-origin only (no CDN); SRI is optional for first-party Vite output. -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>EXIF Stripper</h1>
+      <p class="tagline">Remove private metadata from JPEG and PNG images — entirely in your browser. No uploads, no server.</p>
+    </header>
+
+    <section
+      id="drop-zone"
+      role="region"
+      aria-label="File drop zone"
+      tabindex="0"
+      aria-describedby="drop-hint"
+    >
+      <p id="drop-hint">Drop JPEG or PNG files here, or <label for="file-input" class="link-label">browse</label></p>
+      <input
+        id="file-input"
+        type="file"
+        accept="image/jpeg,image/png,.jpg,.jpeg,.png"
+        multiple
+        aria-label="Select JPEG or PNG files"
+      />
+    </section>
+
+    <section id="controls" hidden>
+      <div class="controls-left">
+        <p id="progress-counter" aria-live="polite"></p>
+        <p id="batch-warning" class="batch-warning" role="status" aria-live="polite" hidden></p>
+      </div>
+      <button id="download-all-btn" disabled>Download all as ZIP</button>
+    </section>
+
+    <div id="sr-status" role="status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+    <section
+      id="results"
+      aria-label="Processing results"
+    ></section>
+  </main>
+
+  <!-- How it works modal trigger -->
+  <button id="how-it-works-btn" class="ghost-btn">How it works</button>
+
+  <dialog id="how-it-works-modal" aria-modal="true" aria-labelledby="modal-title">
+    <h2 id="modal-title">How it works</h2>
+    <p>
+      EXIF Stripper processes your images entirely inside your browser using a
+      Rust library compiled to WebAssembly. Your files never leave your device —
+      there are no uploads, no network requests, and no server involved.
+      After you close this tab, no image data is retained anywhere.
+    </p>
+    <p>
+      <a id="source-repo-link" href="https://github.com/cablepull/exif-stripper-wasm" target="_blank" rel="noopener">
+        View the source on GitHub
+      </a>
+    </p>
+    <button id="modal-close-btn" autofocus>Close</button>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
