@@ -28,4 +28,8 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ["@wasm-pkg"],
   },
+  // wasm-bindgen glue uses async chunks; IIFE workers cannot code-split.
+  worker: {
+    format: "es",
+  },
 });
