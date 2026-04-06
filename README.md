@@ -1,5 +1,8 @@
 # EXIF Stripper (WASM)
 
+**Live demo (the actual app):** **[https://cablepull.github.io/exif-stripper-wasm/](https://cablepull.github.io/exif-stripper-wasm/)** — open this URL for the drop zone and processing UI.  
+*(The GitHub **repository** page below only shows this README; it is not the demo.)*
+
 Remove EXIF and other embedded metadata from JPEG and PNG images **in the browser**. Processing uses a Rust core compiled to WebAssembly; files are not uploaded to a server.
 
 ## Prerequisites
