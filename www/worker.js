@@ -7,7 +7,7 @@
 let wasm = null;
 
 async function init() {
-  const mod = await import("../../pkg/exif_stripper_wasm.js");
+  const mod = await import("@wasm-pkg/exif_stripper_wasm.js");
   await mod.default(); // initialise the WASM module
   wasm = mod;
 }
